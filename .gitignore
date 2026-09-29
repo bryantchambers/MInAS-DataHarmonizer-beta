@@ -233,6 +233,12 @@ fabric.properties
 # JS
 node_modules/
 
+# Provisional triad lookup runtime artifacts and local deployment settings
+/artifacts/
+/.state/
+/.env.triad
+/.env.triad.local
+
 # Visual Studio
 .vscode/
 

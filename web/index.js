@@ -1,4 +1,5 @@
 import { DataHarmonizer, Footer, Toolbar } from '../lib';
+import { TRIAD_FIELDS } from '../lib/triad/value';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
@@ -10,8 +11,24 @@ document.addEventListener('DOMContentLoaded', function () {
   const dhFooterRoot = document.querySelector('#data-harmonizer-footer');
   const dhToolbarRoot = document.querySelector('#data-harmonizer-toolbar');
 
+  const fieldSettings = Object.fromEntries(
+    TRIAD_FIELDS.map((field) => [
+      field,
+      {
+        triadEditor: true,
+        getColumn: (_dh, column) => ({
+          ...column,
+          type: 'dh.triad',
+          source: null,
+          triadField: field,
+        }),
+      },
+    ])
+  );
+
   const dh = new DataHarmonizer(dhRoot, {
     loadingScreenRoot: document.querySelector('body'),
+    fieldSettings,
   });
 
   new Footer(dhFooterRoot, dh);

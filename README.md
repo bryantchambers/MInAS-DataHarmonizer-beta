@@ -1,5 +1,11 @@
 # MInAS - DataHarmonizer
 
+The provisional environmental-triad lexical and semantic lookup is documented
+in [deployment/README.md](deployment/README.md). The service code, pinned
+registry inputs, environment specifications, deployment scripts, and tests live
+in this repository. Large catalog and vector artifacts are distributed as a
+separate, checksummed release bundle.
+
 This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org).
 
 ## New template instructions
@@ -255,4 +261,3 @@ For more information about the DataHarmonizer, it's templates, and how to use th
 ## License
 
 DataHarmonizer javascript, python and other code not mentioned in the Acknowledgement above is covered by the [MIT](LICENSE) license.
-

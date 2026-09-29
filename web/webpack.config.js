@@ -57,6 +57,15 @@ module.exports = (env, argv) => {
     },
     devServer: {
       hot: true,
+      host: '127.0.0.1',
+      port: 8088,
+      proxy: {
+        '/api/v1/mvp/triad': {
+          target: process.env.TRIAD_API_PROXY_TARGET || 'http://127.0.0.1:8766',
+          changeOrigin: false,
+          pathRewrite: { '^/api': '' },
+        },
+      },
       watchFiles: [path.resolve(__dirname, 'index.html')],
     },
   };

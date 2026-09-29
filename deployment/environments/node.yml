@@ -1,0 +1,6 @@
+name: MInAS_DH_node
+channels:
+  - conda-forge
+dependencies:
+  - nodejs=22.23.2
+  - yarn=1.22.22

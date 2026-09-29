@@ -55,3 +55,61 @@ body {
 .add-rows-input {
   max-width: 100px;
 }
+
+.data-harmonizer-grid td.dh-triad-unresolved {
+  box-shadow: inset 0 -2px #b35b00;
+}
+
+.dh-triad-badge {
+  color: #8a4800;
+  font-size: 0.75em;
+  margin-left: 0.5em;
+}
+
+.dh-triad-dropdown {
+  position: fixed;
+  z-index: 10000;
+  max-width: calc(100vw - 1rem);
+  max-height: min(26rem, 55vh);
+  overflow: auto;
+  padding: 0.5rem;
+  border: 1px solid #8a9198;
+  border-radius: 0.25rem;
+  background: white;
+  box-shadow: 0 0.3rem 0.8rem #0003;
+  font-size: 0.875rem;
+}
+
+.dh-triad-dropdown[hidden] {
+  display: none;
+}
+
+.dh-triad-dropdown h6 {
+  margin: 0.6rem 0 0.25rem;
+}
+
+.dh-triad-instructions {
+  color: #495057;
+}
+
+.dh-triad-result {
+  display: block;
+  width: 100%;
+  padding: 0.35rem;
+  border: 0;
+  border-radius: 0.2rem;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dh-triad-result:hover,
+.dh-triad-result.active {
+  background: #dcebf5;
+}
+
+.dh-triad-result strong,
+.dh-triad-result small,
+.dh-triad-result span {
+  display: block;
+}

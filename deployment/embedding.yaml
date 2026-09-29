@@ -1,0 +1,3 @@
+models:
+  embedding_model: allenai/scibert_scivocab_uncased
+  max_tokens: 256
