@@ -1,5 +1,12 @@
 # Self-contained MInAS DataHarmonizer beta — 2026-10-02
 
+**Distribution target:** `bryantchambers/MInAS-DataHarmonizer-beta` is a
+standalone repository, separate from the existing integration forks. This
+avoids the fork-network restriction that rejected the initial LFS upload.
+The existing fork relationships and local upstream remotes are retained.
+The clean-clone verification result is recorded with the published release;
+hosted Ona acceptance remains a separate gate.
+
 The beta includes all project data needed for lexical and semantic triad
 lookup. Git LFS distributes the SQLite catalog, 75 precomputed vector shards,
 SciBERT query weights, and the large MONDO registry. The six registry files
@@ -18,8 +25,8 @@ starting size is 4 CPUs, 8 GiB RAM and 30 GiB disk. This is a configuration
 target, not a measured cloud capacity guarantee.
 
 ```bash
-git clone --branch OntIntegration https://github.com/bryantchambers/MInAS-DataHarmonizer.git
-cd MInAS-DataHarmonizer
+git clone --branch OntIntegration https://github.com/bryantchambers/MInAS-DataHarmonizer-beta.git
+cd MInAS-DataHarmonizer-beta
 bash deployment/scripts/beta.sh setup
 bash deployment/scripts/beta.sh run
 ```
@@ -113,7 +120,9 @@ The model is `allenai/scibert_scivocab_uncased`, revision
 paths in the release manifests remain provenance and do not control serving.
 
 LFS stores data outside normal Git blobs and restores it through GitHub on
-clone/pull. Downloads consume the repository owner's LFS bandwidth quota;
+clone/pull. Fork networks charge the network parent's LFS allowance; a
+standalone beta would use its own owner's allowance. Downloads consume that
+account's LFS bandwidth quota;
 each new researcher environment downloads approximately one GiB of LFS data.
 Check the owning GitHub account's allowance before a large invitation round.
 No history rewrite was used: the earlier MONDO Git blob remains in historical
