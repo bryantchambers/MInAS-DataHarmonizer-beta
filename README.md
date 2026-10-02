@@ -1,10 +1,13 @@
 # MInAS - DataHarmonizer
 
-The provisional environmental-triad lexical and semantic lookup is documented
-in [deployment/README.md](deployment/README.md). The service code, pinned
+The provisional environmental-triad lexical and semantic lookup beta is
+documented in [deployment/BETA.md](deployment/BETA.md), including Gitpod/Ona
+preview setup. The service code, pinned
 registry inputs, environment specifications, deployment scripts, and tests live
-in this repository. Large catalog and vector artifacts are distributed as a
-separate, checksummed release bundle.
+in this repository. The catalog, precomputed vectors, and pinned SciBERT query
+model are included through Git LFS; no separate data transfer is needed.
+Run `bash deployment/scripts/beta.sh setup`, then
+`bash deployment/scripts/beta.sh run` to serve the editor and lookup on port 8088.
 
 This repository is a fork of [DataHarmonizer](https://github.com/cidgoh/DataHarmonizer) ([Gill et al. 2023](https://doi.org/10.1099/mgen.0.000908)) but utilised to view and test the LinkML schemas of the [MInAS project](https://mixs-minas.org).
 

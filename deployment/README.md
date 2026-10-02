@@ -9,6 +9,12 @@ before `:::user jewel`. Jewel text is never searched.
 
 ## Artifact boundary and current release
 
+**Beta distribution update (2026-10-02):** the current catalog, vector shards,
+and pinned SciBERT query weights are now packaged in this repository with Git
+LFS. Start with [`BETA.md`](BETA.md) for the one-port, repository-relative
+installation and Gitpod/Ona configuration. The separate-transfer instructions
+below remain an optional route for future releases or managed hosting.
+
 The current artifact release is `mvp-cec56296b6466737`: 75,876 searchable
 terms and a SciBERT/Qdrant collection named
 `minas_triad_mvp_mvp_cec56296b6466737_9e3badfd4173644e`.
@@ -22,10 +28,12 @@ this release is 1.19.0. Keep the entire artifact release directory together:
 `catalog.sqlite3`, `manifest.json`, `embedding-manifest.json`, `EMBED_SUCCESS`,
 `semantic-manifest.json`, and the `embeddings-scibert-*` shard directory.
 
-The release is about 338 MiB on the current filesystem. Its database, vectors,
-Qdrant storage, and model weights are **outside Git**. Registry JSONL inputs
-are in `ontology/registries/`; each file is below 100 MB. No literature corpus,
-source OWL files, local Mamba environments, or Qdrant storage is needed in Git.
+The catalog/vector release is about 338 MiB on the source filesystem. Its
+database and vectors are Git LFS assets under `artifacts/triad-mvp/`; query
+weights are under `artifacts/model-cache/`. The large MONDO registry is also
+tracked by LFS. Qdrant storage is regenerated locally from the verified
+vectors and remains ignored. No literature corpus, source OWL files, or local
+Mamba environments are needed for serving.
 The source registries and existing release manifests retain historical absolute
 source paths in provenance. These paths do not direct serving. A newly built
 catalog will have a new identity and needs new embeddings.
@@ -43,7 +51,8 @@ TRIAD_LOOKUP_ENV=MInAS_DH_lookup bash deployment/scripts/package-artifacts.sh \
 
 The script copies the release, writes `SHA256SUMS`, checks all files, and
 verifies the catalog and linked manifests against the Git registry inputs.
-Transfer this directory with the site's approved file transfer mechanism.
+For releases not distributed by LFS, transfer this directory with the site's
+approved file transfer mechanism.
 Keep its release name, contents, and checksums intact. A Qdrant snapshot may
 be offered later, after a restore has been tested; the verified shard loader
 is the supported migration route now.
@@ -60,11 +69,13 @@ is the supported migration route now.
    mamba run -n MInAS_DH_node yarn build:web
    ```
 
-3. Put the transferred release under a permanent path outside Git. Copy
+3. Use the bundled LFS release, or put a separately transferred release under
+   a permanent path. Copy
    `deployment/triad.env.example` to `.env.triad` and set
-   `MINAS_MVP_CATALOG` to that absolute directory. Keep `.env.triad` private.
-   Set `HF_HOME` to a persistent directory outside Git.
-4. Cache the pinned SciBERT model once while network access is available:
+   `MINAS_MVP_CATALOG` to that directory. Relative paths resolve against the
+   repository root. Keep `.env.triad` private. The default `HF_HOME` uses the
+   bundled model cache.
+4. If not using the LFS query weights, cache the pinned SciBERT model once:
 
    ```bash
    bash deployment/scripts/triad.sh model-cache
@@ -109,8 +120,9 @@ origin `/api/v1/mvp/triad/` route.
       terms. Search never sends text after `:::`.
 - [ ] A browser spot check confirms selection, two-term composition, jewel
       editing, `env_medium` pipes, and CSV/XLSX round trip.
-- [ ] No database, embeddings, Qdrant state, model weights, downloaded corpus,
-      environment, credential, or file at or above 100 MB is staged in Git.
+- [ ] Databases, embeddings, and model weights are LFS pointers in Git;
+      Qdrant state, downloaded corpus, environments, and credentials are ignored.
+      No ordinary Git blob is at or above 100 MB.
 
 ## Rebuilding a future release
 

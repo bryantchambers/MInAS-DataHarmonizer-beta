@@ -8,7 +8,7 @@ dependencies:
   - pydantic>=2.10
   - pyyaml>=6.0
   - qdrant-client=1.18.0
-  - pytorch=2.5.*
+  - pytorch=2.5.*=cpu*
   - transformers=4.47.1
   - tokenizers=0.21.4
   - huggingface_hub=0.27.1

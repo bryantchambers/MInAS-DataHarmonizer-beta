@@ -234,7 +234,12 @@ fabric.properties
 node_modules/
 
 # Provisional triad lookup runtime artifacts and local deployment settings
-/artifacts/
+/artifacts/*
+!/artifacts/triad-mvp/
+!/artifacts/model-cache/
+/artifacts/model-cache/hub/.locks/
+/artifacts/model-cache/hub/.no_exist/
+/artifacts/model-cache/hub/version.txt
 /.state/
 /.env.triad
 /.env.triad.local

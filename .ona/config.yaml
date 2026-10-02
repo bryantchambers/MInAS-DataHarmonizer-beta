@@ -1,0 +1,12 @@
+services:
+  triad-beta:
+    name: MInAS DataHarmonizer beta
+    description: Editor, lexical lookup and offline SciBERT semantic search on port 8088
+    triggeredBy:
+      - postEnvironmentStart
+    readinessTimeout: 30m
+    commands:
+      start: |
+        bash "$TRIAD_REPOSITORY_ROOT/deployment/scripts/beta.sh" setup
+        exec bash "$TRIAD_REPOSITORY_ROOT/deployment/scripts/beta.sh" run
+      ready: bash "$TRIAD_REPOSITORY_ROOT/deployment/scripts/beta.sh" check

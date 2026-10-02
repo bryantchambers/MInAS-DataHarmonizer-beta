@@ -1,0 +1,12 @@
+{
+  "model": "allenai/scibert_scivocab_uncased",
+  "revision": "24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1",
+  "license": "Apache-2.0",
+  "license_source": "https://github.com/allenai/scibert/blob/master/LICENSE.txt",
+  "files": {
+    "hub/models--allenai--scibert_scivocab_uncased/snapshots/24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1/config.json": "488e7dbd68e27a38337ecb16358810da6df4226ac3b8880a0fde44bfdc37ccf0",
+    "hub/models--allenai--scibert_scivocab_uncased/snapshots/24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1/pytorch_model.bin": "e492944d88ac97dee6baa547671d3c526a3d067676883efb058311f4e5882e1a",
+    "hub/models--allenai--scibert_scivocab_uncased/snapshots/24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1/vocab.txt": "f0a650346e51ede8996710f79ba65d83fdb8da05b159f17037b74ba4e3a36c6f",
+    "SCIBERT-LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  }
+}

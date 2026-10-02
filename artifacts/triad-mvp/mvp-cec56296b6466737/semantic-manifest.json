@@ -1,0 +1,11 @@
+{
+  "catalog_sha256": "c73d0469dea6e9bbb1e33689fa3213f7a735f386d4349060251ca5e7473cf4a6",
+  "catalog_version": "mvp-cec56296b6466737",
+  "collection": "minas_triad_mvp_mvp_cec56296b6466737_9e3badfd4173644e",
+  "embedding_manifest_sha256": "9e3badfd4173644e96cdf0117b6bfdd33824b7d3f3081bfe2b2363bc46c74308",
+  "qdrant_client_version": "1.18.0",
+  "qdrant_exact_count": 75876,
+  "resolved_revision": "24f92d32b1bfb0bcaf9ab193ff3ad01e87732fc1",
+  "status": "provisional",
+  "terms": 75876
+}

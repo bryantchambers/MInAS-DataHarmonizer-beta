@@ -1,0 +1,79 @@
+{
+  "builder_sha256": "4a272cfb8aa66c6c18f67661b6a7b813051c62f9bf11e7e5b6357f67c600af41",
+  "catalog_version": "mvp-cec56296b6466737",
+  "counts_by_source": {
+    "BTO": 6511,
+    "DOID": 12247,
+    "ENVO": 3919,
+    "MONDO": 32104,
+    "OBI": 4459,
+    "PO": 1661,
+    "UBERON": 14975
+  },
+  "curie_policy": "Only source-owned CURIEs are searchable; imported assertions are provenance only",
+  "database_sha256": "c73d0469dea6e9bbb1e33689fa3213f7a735f386d4349060251ca5e7473cf4a6",
+  "excluded_rows": {
+    "foreign_curie": 70066,
+    "obsolete": 8259,
+    "unlabeled": 0
+  },
+  "field_hint_policy": "Broad and material ancestry hints only; no local or blanket UBERON eligibility",
+  "import_assertions_retained": 6609,
+  "schema_version": 2,
+  "source_rows_by_source": {
+    "BTO": 6577,
+    "DOID": 14789,
+    "ENVO": 7161,
+    "MONDO": 57715,
+    "OBI": 5691,
+    "PO": 1809,
+    "UBERON": 26649
+  },
+  "sources": {
+    "BTO": {
+      "ontology_version": "http://purl.obolibrary.org/obo/bto/releases/2021-10-26/bto.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/isolated/term-registry-bto.jsonl",
+      "sha256": "026bb7d9d7c2065ce3cfa836a774c5189c5b0381f0efc33af003ed6d4ffee1d0",
+      "source_iri": "http://purl.obolibrary.org/obo/bto.owl"
+    },
+    "DOID": {
+      "ontology_version": "http://purl.obolibrary.org/obo/doid/releases/2026-07-31/doid.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/isolated/term-registry-doid.jsonl",
+      "sha256": "caf6361b5a0c720d3bf558bc05932092d26e985e02a09e0c1fa1ef16638e0520",
+      "source_iri": "http://purl.obolibrary.org/obo/doid.owl"
+    },
+    "ENVO": {
+      "ontology_version": "http://purl.obolibrary.org/obo/envo/releases/2026-06-26/envo.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/term-registry.jsonl",
+      "sha256": "d85b7a0783478d234b3ba8dae6024287870333c411d6fca0b619780afb263f8e",
+      "source_iri": "http://purl.obolibrary.org/obo/envo.owl"
+    },
+    "MONDO": {
+      "ontology_version": "http://purl.obolibrary.org/obo/mondo/releases/2026-08-04/mondo.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/isolated/term-registry-mondo.jsonl",
+      "sha256": "d693ccdefd5120b539979152ce319c7fa497876dad631a514fe65077a0ff0816",
+      "source_iri": "http://purl.obolibrary.org/obo/mondo.owl"
+    },
+    "OBI": {
+      "ontology_version": "http://purl.obolibrary.org/obo/obi/2026-07-27/obi.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/isolated/term-registry-obi.jsonl",
+      "sha256": "85eb68633fb965f65453c00ed87b0410267431b8b54502df78199881f8cf0090",
+      "source_iri": "http://purl.obolibrary.org/obo/obi.owl"
+    },
+    "PO": {
+      "ontology_version": "http://purl.obolibrary.org/obo/po/releases/2026-01-09/po.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/isolated/term-registry-po.jsonl",
+      "sha256": "8aea6d22d37297a25f5892589287f292fa8f88a0efe5e69147c6fe9f2235d0aa",
+      "source_iri": "http://purl.obolibrary.org/obo/po.owl"
+    },
+    "UBERON": {
+      "ontology_version": "http://purl.obolibrary.org/obo/uberon/releases/2026-06-19/uberon.owl",
+      "path": "/maps/projects/caeg/people/gfx654/Projects/MIxS-MInAS/TermLimit/results/ontmap/term-registry.jsonl",
+      "sha256": "d85b7a0783478d234b3ba8dae6024287870333c411d6fca0b619780afb263f8e",
+      "source_iri": "http://purl.obolibrary.org/obo/uberon.owl"
+    }
+  },
+  "status": "provisional",
+  "total_terms": 75876,
+  "unique_searchable_terms": 75876
+}

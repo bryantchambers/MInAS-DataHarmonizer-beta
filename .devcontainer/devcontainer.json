@@ -1,0 +1,22 @@
+{
+  "name": "MInAS DataHarmonizer triad beta",
+  "build": { "dockerfile": "Dockerfile" },
+  "features": { "ghcr.io/devcontainers/features/docker-in-docker:2": {} },
+  "remoteUser": "vscode",
+  "runArgs": ["--network=host"],
+  "hostRequirements": { "cpus": 4, "memory": "8gb", "storage": "30gb" },
+  "containerEnv": {
+    "TRIAD_BETA_HOST": "0.0.0.0",
+    "TRIAD_REPOSITORY_ROOT": "${containerWorkspaceFolder}"
+  },
+  "forwardPorts": [8088],
+  "portsAttributes": {
+    "8088": {
+      "label": "MInAS DataHarmonizer beta",
+      "onAutoForward": "openBrowser"
+    },
+    "6333": { "onAutoForward": "ignore" },
+    "8766": { "onAutoForward": "ignore" }
+  },
+  "postCreateCommand": "bash deployment/scripts/beta.sh setup"
+}

@@ -180,6 +180,50 @@ def test_api_contract_and_semantic_unbuilt(
     )
 
 
+def test_beta_one_port_static_and_lookup(catalog: Catalog, monkeypatch, tmp_path) -> None:
+    """The production preview serves schema assets and API at the browser's origin."""
+    import importlib
+
+    web = tmp_path / "web"
+    web.mkdir()
+    (web / "index.html").write_text("<html>beta editor</html>")
+    (web / "dist-schemas").mkdir()
+    (web / "dist-schemas/schemas.js").write_text("var schemas = {};")
+    monkeypatch.setenv("TRIAD_WEB_DIRECTORY", str(web))
+    monkeypatch.setenv("MINAS_MVP_CATALOG", str(catalog.directory))
+    _catalog.cache_clear()
+    beta = importlib.import_module("lookup.beta_app")
+    beta = importlib.reload(beta)
+    client = TestClient(beta.app)
+    assert "beta editor" in client.get("/").text
+    assert client.get("/dist-schemas/schemas.js").status_code == 200
+    assert client.get("/api/v1/mvp/triad/health").json()["total_terms"] == 9
+    response = client.get("/api/v1/mvp/triad/lexical", params={"q": "cave dirt"})
+    assert response.status_code == 200
+    assert response.json()["results"][0]["label"] == "cave sediment"
+    assert client.get("/api/v1/mvp/triad/semantic", params={"q": "cave"}).status_code == 503
+
+
+def test_bundled_model_integrity_rejects_lfs_pointer(tmp_path) -> None:
+    """An unhydrated LFS checkout must fail before advertising semantic search."""
+    from lookup.beta_assets import FILES, SCIBERT_COMMIT, SNAPSHOT, package, verify
+
+    source = tmp_path / SCIBERT_COMMIT
+    source.mkdir()
+    for name in FILES:
+        (source / name).write_bytes(name.encode())
+    license_path = tmp_path / "license.txt"
+    license_path.write_text("fixture license")
+    destination = tmp_path / "cache"
+    package(source, destination, license_path)
+    assert verify(destination)["status"] == "verified"
+    (destination / SNAPSHOT / "pytorch_model.bin").write_text(
+        "version https://git-lfs.github.com/spec/v1\n"
+    )
+    with pytest.raises(ValueError, match="checksum mismatch"):
+        verify(destination)
+
+
 def test_semantic_artifacts_resume_local_load_and_cpu_query(
     catalog: Catalog, monkeypatch: pytest.MonkeyPatch
 ) -> None:

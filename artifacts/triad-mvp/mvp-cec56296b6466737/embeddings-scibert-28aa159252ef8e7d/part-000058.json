@@ -1,0 +1,15 @@
+{
+  "batch_size": 32,
+  "count": 1024,
+  "cuda_device": "NVIDIA A100-PCIE-40GB",
+  "curies": "embeddings-scibert-28aa159252ef8e7d/part-000058.curies.txt",
+  "curies_sha256": "3d93908b1911a3daad633e949cba97674737a26af70257dae7c558b60d2d02dc",
+  "dimension": 768,
+  "elapsed_seconds": 1.432,
+  "node": "dandygpun01fl.unicph.domain",
+  "peak_cuda_memory_bytes": 735128576,
+  "slurm_job_id": "23077735",
+  "slurm_step_id": "0",
+  "vectors": "embeddings-scibert-28aa159252ef8e7d/part-000058.npy",
+  "vectors_sha256": "886b878ad9282e27aa2b04c018dab990d64851b9cb999dd8b1a0364783712135"
+}

@@ -1,0 +1,4 @@
+name: MInAS_DH_tools
+channels: [conda-forge]
+dependencies:
+  - git-lfs=3.7.1

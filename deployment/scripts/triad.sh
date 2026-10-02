@@ -1,21 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-root=$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)
-if [[ -f "$root/.env.triad" ]]; then
-  set -a
-  # Local operator configuration; keep this file private and out of Git.
-  source "$root/.env.triad"
-  set +a
-fi
-lookup_env=${TRIAD_LOOKUP_ENV:-MInAS_DH_lookup}
-node_env=${TRIAD_NODE_ENV:-MInAS_DH_node}
+source "$(dirname "${BASH_SOURCE[0]}")/runtime.sh"
 gpu_env=${TRIAD_GPU_ENV:-MInAS_DH_embed_gpu}
 action=${1:-help}
 
 require_catalog() {
   [[ -n "${MINAS_MVP_CATALOG:-}" ]] || {
-    echo "Set MINAS_MVP_CATALOG to an absolute artifact release directory" >&2
+    echo "Set MINAS_MVP_CATALOG to an artifact release directory" >&2
     exit 2
   }
   [[ "$MINAS_MVP_CATALOG" = /* ]] || {
