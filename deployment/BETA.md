@@ -134,10 +134,23 @@ triad validity. This beta does not replace the ontology repair/review pipeline.
 
 ## Verification and remaining gate
 
+GitHub distribution verified on 2026-10-02 at packaging commit `2e1e011`:
+the standalone repository accepted 78 LFS assets (926,750,158 bytes). A fresh
+GitHub clone made with `GIT_LFS_SKIP_SMUDGE=1` successfully ran `beta.sh setup`,
+fetched all LFS objects, passed LFS fsck and release/model checksums, and built
+the production editor. From that separate checkout, preparation verified
+75,876 linked points on an already initialized test Qdrant server and warmed
+SciBERT offline. Its one-port preview passed editor/static-schema retrieval,
+`snoil` → soil lexical lookup and a real semantic request. No TermLimit Python
+package or artifact path was used. The CPU environment specifications and
+fresh Qdrant loading had already been tested independently before publication.
+This clone test reused the installed named Mamba environments and the running
+test Qdrant; it does not establish a clean cloud Docker/devcontainer launch.
+
 Local validation uses the actual committed CPU environment specifications,
 Qdrant 1.19.0 with fresh storage, offline packaged SciBERT, and production
 frontend assets. The exact point-count and lexical/semantic checks must also
-pass from a clean GitHub clone. Record that result with the release commit.
+pass from the hosted environment before researchers are invited.
 
 A real Ona environment launch and researcher-facing browser interaction are
 separate acceptance gates. Repository configuration or local tests alone
